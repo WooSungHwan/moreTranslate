@@ -1,0 +1,210 @@
+@font-face {
+    font-family: '본문체';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/123RF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face { font-family: '남양주고딕'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_M.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: '제목체'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/headline.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+body{
+    background-color: #F3F3F3;
+    padding : 0 50px 0 50px; /*스크립트써서 제어*/
+}
+
+.shadow{
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.1);
+}
+h1, h2, h3, h4, h5, h6{
+	font-family:'제목체';
+  text-align: center;
+}
+p{
+  text-align: center;
+}
+.inputBox{
+  width:1000px;
+  background : white;
+  border-radius: 5px;
+  margin:15px auto;
+}
+
+.translateArea{
+  background-color:#FFFFFF;
+  width:978px;
+  display: block;
+  height: 160px;
+	border:1px solid #353646;
+	font-size:15px;
+	color:#777777;
+  resize : none;
+  scroll-behavior: smooth;
+  border-radius: 5px;
+  padding:10px;
+  margin: 0 auto;
+}
+
+.textArea_naver{
+  width:100% - 10px;
+  height:160px;
+  border : 5px solid rgba(3,207,93,0.5);
+  border-radius: 5px;
+  font-size:15px;
+  padding:10px;
+}
+
+.textArea_kakao{
+  width:100% - 10px;
+  height:160px;
+  border : 5px solid rgba(255,205,0,0.5);
+  border-radius: 5px;
+  font-size:15px;
+  padding:10px;
+}
+
+.textArea_google{
+  width:100% - 10px;
+  height:160px;
+  border : 5px solid rgba(66,133,244,0.5);
+  border-radius: 5px;
+  font-size:15px;
+  padding:10px;
+}
+
+header{
+  background : #353646;
+  color:white;
+  width:970px;
+  padding:15px;
+  margin:0 auto 10px auto;
+}
+
+.translateBtn{
+  display:inline-block;
+  width:5rem;
+  height:40px;
+  background : white;
+  /*box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);*/
+  border-radius: 5px;
+  border: 1px solid  #E3E3E3;
+  text-align:center;
+}
+.translateBtn:hover{
+  cursor:pointer;
+  background: #353646; /*linear-gradient(to right, #3568FB, #353646);*/
+  border : 1px solid #F3F3F3;
+}
+.translateBtn:hover > i{
+  color:white;
+}
+
+/* 셀렉트박스 초록색 예쁜 디자인 */
+  .select-wrapper{
+    font: normal 14px '\5FAE\8F6F\96C5\9ED1';
+    width: 240px;
+    height: 34px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    *display: inline;
+    *float: left;
+    *margin-right: 10px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #e3e3e3; /*회색*/
+  }
+  .select-wrapper.focus{
+    border: 1px solid #353646; /* 민트색 61b988*/
+  }
+  .select-button{
+    font: normal 14px '\5FAE\8F6F\96C5\9ED1';
+    width: 238px;
+    height: 34px;
+    border: 0;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    padding: 0 26px 0 10px;
+    overflow: hidden;
+    text-align: left;
+    outline: none;
+    white-space: nowrap;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+  }
+  .select-down{
+    position: absolute;
+    top: 21px;
+    right: 12px;
+    height:0;
+    width:0;
+    overflow: hidden;
+    font-size: 0;
+    border-color: #333 transparent transparent transparent;
+    border-style: solid;
+    border-width: 6px;
+  }
+  .disabled{
+    color: #cccccc;
+  }
+  .select-list{
+    width: 238px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 0 3px #ddd;
+    border-radius: 3px;
+    display: none;
+    z-index: 2;
+    position: absolute;
+
+    top: 35px;
+    overflow: hidden;
+  }
+  .select-list ul{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    line-height: 34px;
+    max-height: 240px;
+    text-align: left;
+  }
+  .select-list ul li{
+    width: auto;
+    height: 34px;
+    padding-left: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+  }
+  .select-list ul li.selected,
+  .select-list ul li:hover{
+    color: #fff;
+    background: #353646;/*민트색*/
+  }
+
+  /* 下拉列表不可用样式 */
+  .select-button-disable{
+    color: #ccc;
+    width: 238px;
+    height: 34px;
+    border: 1px solid #e3e3e3;  /*회색*/
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+    padding-left: 10px;
+    overflow: hidden;
+    text-align: left;
+    outline: none;
+  }
+  .select-down-disable{
+   color: #ccc;
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+   line-height: 34px;
+  }
