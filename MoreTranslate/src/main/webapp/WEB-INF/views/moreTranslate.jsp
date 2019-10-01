@@ -20,15 +20,15 @@
       </header>
       <textarea id = "translateArea" class="translateArea shadow" maxlength="1000"></textarea>
 		<script>
-			let placeholder="\n번역할 내용을 입력하세요.(언어감지) \n\n"+
-							"* 문장/문단 단위로 입력하셔야 구분이 편하십니다.\n"+
-							"* 최대 1000자 까지만 번역이가능합니다.";
+			let placeholder="\r\n번역할 내용을 입력하세요.(언어감지) \r\n\r\n"+
+							"* 문장/문단 단위로 입력하셔야 구분이 편하십니다.\r\n"+
+							"* 한번에 최대 1000자 까지만 번역이가능합니다.";
 			$("#translateArea").attr('placeholder', placeholder);
 		</script>
 	
 
     <div class="inputBox" style="height:50px; background:#F3F3F3; vertical-align:middle; line-height: 40px; ">
-      <div style="float:left; width:330px; text-align:left;">
+      <div id="left" style="float:left; width:330px; text-align:left;">
         <label for="">번역기 선택 : </label>
         <select id="selectBox1" class="selectBox2" style="text-align:left;">
           <option value="0">All</option>
@@ -37,7 +37,7 @@
           <option value="3">Google</option>
         </select>
       </div>
-      <div style="text-align:center; float:left; width:340px; ">
+      <div id="middle" style="text-align:center; float:left; width:340px; ">
         <span id="translateBtn" class="translateBtn">
           <i class="fas fa-exchange-alt"></i>
         </span>
@@ -46,7 +46,7 @@
       <!-- <span style="display:inline-block; width:100px;"></span>
       <span style="display:inline-block; width:100px;"></span> -->
       <!-- 번역언어 선택 -->
-      <div style="float:left; width:330px; text-align:right;">
+      <div id="right" style="float:left; width:330px; text-align:right;">
         <label for="">번역언어 선택 : </label>
         <select id="selectBox2" class="selectBox2">
     		<option value="en">영어</option>
