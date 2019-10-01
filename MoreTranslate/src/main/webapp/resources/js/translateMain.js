@@ -42,7 +42,7 @@ $("#translateBtn").on("click",function(){
 				console.log(result);
 				let resultValue = "";
 				var errorCode = result.errorCode;
-				debugger;
+				
 				if(errorCode == "N2MT06") { // 제공안되는 번역기
 					resultValue="죄송합니다. 입력하신 언어에서 선택하신 언어로는 번역기가 제공되지 않습니다.";
 				}
@@ -108,9 +108,39 @@ $("#translateBtn").on("click",function(){
 				
 			},error:function(a,b,c){
 				console.log(a,b,c);
-				
 			}
 		});
 	
 	}
+	if(isGoogle){
+		let source_lang = "";
+		let target_lang = "";
+    	$.ajax({
+            type:"POST",
+            data:'q=' + value,
+            url:'https://translation.googleapis.com/language/translate/v2/detect?key=AIzaSyBgsl1DeUzESAeIDatvgtlUMH57jlop3DA',
+
+            success:function(response){
+            	source_lang = response.data.detections[0][0].language
+            	target_lang = lang;
+            	
+                console.log("google source_lang : "+response.data.detections[0][0].language);
+                console.log("google target_lang : "+lang);
+                
+                $.ajax({
+        	        type:"POST",
+        	        data:'&target='+lang+'&format=html&q=' + value,
+        	        url:'https://www.googleapis.com/language/translate/v2?key=AIzaSyBgsl1DeUzESAeIDatvgtlUMH57jlop3DA',
+
+        	        success:function(response){
+        	        	
+        	        	let resultValue = response.data.translations[0].translatedText;
+        	        	
+        	        	$("#textArea_google").text(resultValue);
+        	        }
+        	    });
+            }
+        });
+	}
 });
+
