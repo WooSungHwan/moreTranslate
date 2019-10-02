@@ -64,7 +64,7 @@ function eventBind(){
 		if(isPapago){
 			$.ajax({
 				type:'post',
-				url:'/more/papago',
+				url:'/papago',
 				dataType:'json',
 				data:params,
 				success:function(result){
@@ -109,7 +109,7 @@ function eventBind(){
 		if(isKakao){ //웬만하면 모든 채널 되는 듯.
 			$.ajax({
 				type:'post',
-				url:'/more/kakao',
+				url:'/kakao',
 				dataType:'json',
 				data:params,
 				success:function(result){

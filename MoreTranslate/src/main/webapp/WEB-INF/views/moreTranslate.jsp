@@ -20,7 +20,7 @@
       </header>
       <textarea id = "translateArea" class="translateArea shadow" maxlength="1000"></textarea>
 		<script>
-			let placeholder="\r\n번역할 내용을 입력하세요.(언어감지) \r\n\r\n"+
+			var placeholder="\r\n번역할 내용을 입력하세요.(언어감지) \r\n\r\n"+
 							"* 문장/문단 단위로 입력하셔야 구분이 편하십니다.\r\n"+
 							"* 한번에 최대 1000자 까지만 번역이가능합니다.";
 			$("#translateArea").attr('placeholder', placeholder);
