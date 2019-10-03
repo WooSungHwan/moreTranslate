@@ -92,6 +92,7 @@
       <div id="textArea_google" class="textArea_google">
       </div>
     </div>
+    <jsp:include page="footer.jsp" flush="false"></jsp:include>
   </body>
   <form>
   	<input type="hidden" id="vendor" value = "0" />

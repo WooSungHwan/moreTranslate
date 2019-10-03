@@ -8,6 +8,7 @@ $(document).ready(function(){
 		$("body").width("600px");
 		$('.inputBox').width("600px");
 		$("header").width("568px");
+		$("footer").width("568px");
 		$("#middle").width("85px");
 		$("#left").width("230px");
 		$("#right").width("279px");
