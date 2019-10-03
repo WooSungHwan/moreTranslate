@@ -16,7 +16,7 @@
   <body>
       <header>
         <h1>모아번역</h1>
-        <p>파파고, 카카오, 구글 3대 번역 기술을 한데모아 번역하자</p>
+        <p>파파고, 카카오, 구글 3대 번역 기술을 한곳에서 <br> 모아 번역하자</p>
       </header>
       <textarea id = "translateArea" class="translateArea shadow" maxlength="1000"></textarea>
 		<script>

@@ -16,8 +16,10 @@ $(document).ready(function(){
 		$("#translateArea").height("500px");
 		$("#translateArea").css("font-size", "30px");
 		$(".textArea_naver").css("font-size","30px").height("400px");
-		$(".textArea_kakao").css("font-size","30px").height("400px");;
-		$(".textArea_google").css("font-size","30px").height("400px");;
+		$(".textArea_kakao").css("font-size","30px").height("400px");
+		$(".textArea_google").css("font-size","30px").height("400px");
+		$("h1").css("font-size","3rem");
+		$("p").css("font-size","25px")
 	}
 	eventBind();
 });
