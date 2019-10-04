@@ -52,6 +52,7 @@ p{
   border-radius: 5px;
   font-size:15px;
   padding:10px;
+  overflow:auto;
 }
 
 .textArea_kakao{
@@ -61,6 +62,7 @@ p{
   border-radius: 5px;
   font-size:15px;
   padding:10px;
+  overflow:auto;
 }
 
 .textArea_google{
@@ -70,6 +72,7 @@ p{
   border-radius: 5px;
   font-size:15px;
   padding:10px;
+  overflow:auto;
 }
 
 header{
@@ -82,11 +85,11 @@ header{
 
 footer{
 	background : #353646;
-  color:white;
-  width:970px;
-  text-align:center;
-  padding:15px;
-  margin:0 auto 10px auto;
+  	color:white;
+  	width:970px;
+  	text-align:center;
+  	padding:15px;
+  	margin:0 auto 10px auto;
 }
 footer a{
 	color:white;

@@ -94,9 +94,5 @@
     </div>
     <jsp:include page="footer.jsp" flush="false"></jsp:include>
   </body>
-  <form>
-  	<input type="hidden" id="vendor" value = "0" />
-  	<input type="hidden" id="lang" value = "ko"/>
-  </form>
 </html>
 <script src="resources/js/translateMain.js"></script>

@@ -85,6 +85,12 @@ function eventBind(){
 						return;
 					}
 					
+					if(errorCode == "010"){
+						resultValue = "죄송합니다. 현재 파파고 번역기는 일일 사용량을 초과하였습니다.";
+						$("#textArea_naver").text(resultValue);
+						return;
+					}
+					
 					if(errorCode == "N2MT99") { // 제공안되는 번역기
 						alert("papago : 알 수 없는 오류 발생.");
 						return;
@@ -166,9 +172,8 @@ function eventBind(){
 
 	        	        success:function(response){
 	        	        	
-	        	        	let resultValue = response.data.translations[0].translatedText;
-	        	        	console.log(resultValue);
-	        	        	resultValue = resultValue.replace("&#39;","'")
+	        	        	let resultValue = response.data.translations[0].translatedText+"";
+	        	        	resultValue = resultValue.replace(/&#39;/g,"'");
 	        	        	$("#textArea_google").text(resultValue);
 	        	        }
 	        	    });

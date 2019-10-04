@@ -81,11 +81,6 @@ public class TranslateController {
 		}
 	}
 	
-	@PostMapping("/google")
-	public void googleTranslate(HttpServletRequest req, HttpServletResponse resp) {
-		
-	}
-	
 	private String languageSensor(String value) {
 
         try {
