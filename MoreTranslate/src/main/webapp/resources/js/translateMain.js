@@ -15,9 +15,9 @@ $(document).ready(function(){
 		$("#translateArea").width("578px");
 		$("#translateArea").height("500px");
 		$("#translateArea").css("font-size", "30px");
-		$(".textArea_naver").css("font-size","30px").height("400px");
-		$(".textArea_kakao").css("font-size","30px").height("400px");
-		$(".textArea_google").css("font-size","30px").height("400px");
+		$(".textArea_naver").css("font-size","30px").height("400px").width("572px");
+		$(".textArea_kakao").css("font-size","30px").height("400px").width("572px");
+		$(".textArea_google").css("font-size","30px").height("400px").width("572px");
 		$("h1").css("font-size","3rem");
 		$("p").css("font-size","25px")
 	}
@@ -140,7 +140,11 @@ function eventBind(){
 					}
 					
 					if(result.result == 1){
-						resultValue = result.translated_text[0][0];
+						for(var i =0; i<result.translated_text.length; i++){
+							for(var j =0; j<result.translated_text[i].length; j++){
+								resultValue += result.translated_text[i][j]+" ";
+							}
+						}
 					}
 					$("#textArea_kakao").text(resultValue);
 					

@@ -28,6 +28,12 @@ p{
   background : white;
   border-radius: 5px;
   margin:15px auto;
+  font-family: '본문체';
+}
+
+textarea{
+	font-family: '남양주고딕';
+	resize:none;
 }
 
 .translateArea{
@@ -46,7 +52,7 @@ p{
 }
 
 .textArea_naver{
-  width:100% - 10px;
+  width:970px;
   height:160px;
   border : 5px solid rgba(3,207,93,0.5);
   border-radius: 5px;
@@ -56,7 +62,7 @@ p{
 }
 
 .textArea_kakao{
-  width:100% - 10px;
+  width:970px;
   height:160px;
   border : 5px solid rgba(255,205,0,0.5);
   border-radius: 5px;
@@ -66,13 +72,22 @@ p{
 }
 
 .textArea_google{
-  width:100% - 10px;
+  width:970px;
   height:160px;
   border : 5px solid rgba(66,133,244,0.5);
   border-radius: 5px;
   font-size:15px;
   padding:10px;
   overflow:auto;
+}
+
+.positionadjust{
+	position:relative;
+	top:1.5px;
+}
+
+textarea:focus{
+	outline:none;
 }
 
 header{
@@ -104,10 +119,12 @@ footer a{
   border-radius: 5px;
   border: 1px solid  #E3E3E3;
   text-align:center;
+  line-height:55px;
+  color:#353646;
 }
 .translateBtn:hover{
   cursor:pointer;
-  background: #353646; /*linear-gradient(to right, #3568FB, #353646);*/
+  background: #353646; /* linear-gradient(to right, #353622, #353646); */
   border : 1px solid #F3F3F3;
 }
 .translateBtn:hover > i{

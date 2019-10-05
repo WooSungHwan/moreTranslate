@@ -32,14 +32,14 @@
         <label for="">번역기 선택 : </label>
         <select id="selectBox1" class="selectBox2" style="text-align:left;">
           <option value="0">All</option>
+          <option value="3">Google</option>
           <option value="1">Papago</option>
           <option value="2">Kakao</option>
-          <option value="3">Google</option>
         </select>
       </div>
       <div id="middle" style="text-align:center; float:left; width:340px; ">
         <span id="translateBtn" class="translateBtn">
-          <i class="fas fa-exchange-alt"></i>
+          <i class="fas fa-play-circle fa-2x"></i>
         </span>
       </div>
 		
@@ -49,8 +49,8 @@
       <div id="right" style="float:left; width:330px; text-align:right;">
         <label for="">번역언어 선택 : </label>
         <select id="selectBox2" class="selectBox2">
-    		<option value="en">영어</option>
     		<option value="ko">한국어</option><!-- 카카오 : kr -->
+    		<option value="en">영어</option>
     		<option value="ja">일본어</option><!-- 카카오 : jp -->
     		<option value="zh-CN">중국어(간체)</option> <!-- 카카오 cn -->
     		<option value="zh-TW">중국어(번체)</option> <!-- 카카오 cn -->
@@ -77,21 +77,22 @@
   		</script>
 
     </div><!-- 띄우기용 -->
-
+	
+	<div class="inputBox shadow">
+      <textarea id="textArea_google" class="textArea_google positionadjust" readonly="readonly">
+      </textarea>
+    </div>	
     <div class="inputBox shadow">
-      	<div id="textArea_naver" class="textArea_naver">
+      	<textarea id="textArea_naver" class="textArea_naver positionadjust" readonly="readonly">
 			
-      </div>
+      </textarea>
     </div>
     <div class="inputBox shadow">
-      <div id="textArea_kakao" class="textArea_kakao">
+      <textarea id="textArea_kakao" class="textArea_kakao positionadjust" readonly="readonly">
 			
-      </div>
+      </textarea>
     </div>
-    <div class="inputBox shadow">
-      <div id="textArea_google" class="textArea_google">
-      </div>
-    </div>
+    
     <jsp:include page="footer.jsp" flush="false"></jsp:include>
   </body>
 </html>
