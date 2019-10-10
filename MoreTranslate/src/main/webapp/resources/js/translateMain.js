@@ -71,9 +71,10 @@ function eventBind(){
 				dataType:'json',
 				data:params,
 				success:function(result){
-					console.log(result);
+					var finalResult = JSON.parse(result.resp);
+					
 					let resultValue = "";
-					var errorCode = result.errorCode;
+					var errorCode = finalResult.errorCode;
 					
 					if(errorCode == "N2MT06") { // 제공안되는 번역기
 						resultValue="죄송합니다. 입력하신 언어에서 선택하신 언어로는 번역기가 제공되지 않습니다.";
@@ -104,7 +105,7 @@ function eventBind(){
 					}
 					
 					if(result.result == 1 && !errorCode){
-						resultValue = result.message.result.translatedText;
+						resultValue = finalResult.message.result.translatedText;
 					}
 					$("#textArea_naver").text(resultValue);
 				}
@@ -123,6 +124,8 @@ function eventBind(){
 				data:params,
 				success:function(result){
 					console.log(result);
+					var finalResult = JSON.parse(result.resp);
+
 					let resultValue = "";
 					var errorCode = result.errorCode;
 					
@@ -133,16 +136,16 @@ function eventBind(){
 						return;
 					}
 					
-					if(result.resultLang == 'unk' && isFirst){
+					if(finalResult.resultLang == 'unk' && isFirst){
 						isFirst = false;
 						alert("죄송합니다. 언어를 감지하는데 실패했습니다. 정확한 문장을 입력해주세요.");
 						return;
 					}
 					
-					if(result.result == 1){
-						for(var i =0; i<result.translated_text.length; i++){
-							for(var j =0; j<result.translated_text[i].length; j++){
-								resultValue += result.translated_text[i][j]+" ";
+					if(result.result == 1 || isFirst){
+						for(var i =0; i<finalResult.translated_text.length; i++){
+							for(var j =0; j<finalResult.translated_text[i].length; j++){
+								resultValue += finalResult.translated_text[i][j]+" ";
 							}
 						}
 					}

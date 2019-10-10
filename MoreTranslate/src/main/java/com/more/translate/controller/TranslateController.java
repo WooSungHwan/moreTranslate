@@ -11,15 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.more.translate.CommonConstants;
+import com.more.translate.model.ResultVO;
 import com.more.translate.model.TransVO;
 
 @Controller
@@ -47,38 +49,34 @@ public class TranslateController {
 	}
 	
 	
-	@RequestMapping(value = "/papago", method = { RequestMethod.POST })
-	@ResponseBody
-	public JSONObject papagoTranslate(HttpServletRequest req, HttpServletResponse resp, TransVO vo) {
-		//String lang = req.getParameter("lang"); //return lang
-		//String value = req.getParameter("value"); //사용자 텍스트
-		
+	@RequestMapping(value = "/papago", method = { RequestMethod.POST }, produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public ResponseEntity<ResultVO> papagoTranslate(HttpServletRequest req, HttpServletResponse resp, TransVO vo) {
 		String sensor = languageSensor(vo.getValue()); //여기서 언어감지함.
-		JSONObject json = new JSONObject();
+		ResultVO result = new ResultVO();
+		
 		if(sensor.equals(vo.getLang())) {
-			json.put("result",-1);
-			return json;
+			result.setResult(-1);
 		}else {
-			json = naverNMT(sensor, vo.getValue(), vo.getLang()); // 타겟언어타입, 값, 번역언어타입
-			json.put("result",1);
-			return json;
+			StringBuffer response = naverNMT(sensor, vo.getValue(), vo.getLang()); // 타겟언어타입, 값, 번역언어타입
+			result.setResult(1);
+			result.setResp(response.toString());
 		}
+		
+		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/kakao", method = { RequestMethod.POST })
-	@ResponseBody
-	public JSONObject kakaoTranslate(HttpServletRequest req, HttpServletResponse resp, TransVO vo) {
+	@RequestMapping(value = "/kakao", method = { RequestMethod.POST }, produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public ResponseEntity<ResultVO> kakaoTranslate(HttpServletRequest req, HttpServletResponse resp, TransVO vo) {
 		String sensor = languageSensor(vo.getValue()); //여기서 언어감지함.
-		JSONObject json = new JSONObject();
+		ResultVO result = new ResultVO();
 		if(sensor.equals(vo.getLang())) {
-			json.put("result",-1);
-			return json;
+			result.setResult(-1);
 		}else {
-			json = kakao(sensor, vo.getValue(), vo.getLang()); // 타겟언어타입, 값, 번역언어타입
-			json.put("result",1);
-			json.put("resultLang", sensor);
-			return json;
+			result.setResult(1);
+			result.setResp(kakao(sensor, vo.getValue(), vo.getLang()));
+			 // 타겟언어타입, 값, 번역언어타입
 		}
+		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
 	private String languageSensor(String value) {
@@ -119,7 +117,7 @@ public class TranslateController {
         return null;
 	}
 	
-	private JSONObject naverNMT(String sensor, String value, String lang) {
+	private StringBuffer naverNMT(String sensor, String value, String lang) {
         try {
             String text = URLEncoder.encode(value, "UTF-8");
             String apiURL = "https://openapi.naver.com/v1/papago/n2mt";
@@ -149,12 +147,12 @@ public class TranslateController {
             }
             br.close();
             //System.out.println(response.toString());
-            JSONParser jsonParser = new JSONParser();
+            //JSONParser jsonParser = new JSONParser();
             
             //JSON데이터를 넣어 JSON Object 로 만들어 준다.
-            JSONObject jsonObject = (JSONObject) jsonParser.parse(response.toString());
+            //JSONObject jsonObject = (JSONObject) jsonParser.parse(response.toString());
             
-            return jsonObject;
+            return response;
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -162,7 +160,7 @@ public class TranslateController {
         return null;
 	}
 	
-	private JSONObject kakao(String sensor, String value, String lang) {
+	private String kakao(String sensor, String value, String lang) {
 		try {	
 			String text = URLEncoder.encode(value,"UTF-8");
 			sensor = changeKakaoLang(sensor);
@@ -198,11 +196,8 @@ public class TranslateController {
 				res.append(inputLine);
 			}
 			br.close();
-			JSONParser jsonParser = new JSONParser();
-            System.out.println(res.toString());
-            //JSON데이터를 넣어 JSON Object 로 만들어 준다.
-            JSONObject jsonObject = (JSONObject) jsonParser.parse(res.toString());
-            return jsonObject;
+			
+			return res.toString();
 		} catch (Exception e) {
 			System.out.println("--확인용 -- 오류 발생");
 			e.printStackTrace();
