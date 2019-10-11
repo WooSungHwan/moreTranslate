@@ -10,7 +10,6 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.more.translate.CommonConstants;
 import com.more.translate.model.ResultVO;
@@ -26,22 +24,6 @@ import com.more.translate.model.TransVO;
 
 @Controller
 public class TranslateController {
-	
-	/**
-	 * 특정 게시물의 댓글 목록 확인.
-	 */
-	/*@GetMapping(value="/pages/{bno}/{page}",
-			produces= {
-					MediaType.APPLICATION_XML_VALUE,
-					MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<ReplyPageDTO> getList(@PathVariable("page") int page, @PathVariable("bno") Long bno){
-		
-		Criteria cri = new Criteria(page,10);
-		log.info("get Reply List bno : "+bno);
-		log.info(cri);
-		return new ResponseEntity<>(service.getListPage(cri, bno), HttpStatus.OK);
-	}
-	*/
 	
 	@GetMapping("/moreTranslate")
 	public String moreTranslateMain(HttpServletRequest req, HttpServletResponse resp) {
@@ -146,12 +128,6 @@ public class TranslateController {
                 response.append(inputLine);
             }
             br.close();
-            //System.out.println(response.toString());
-            //JSONParser jsonParser = new JSONParser();
-            
-            //JSON데이터를 넣어 JSON Object 로 만들어 준다.
-            //JSONObject jsonObject = (JSONObject) jsonParser.parse(response.toString());
-            
             return response;
         } catch (Exception e) {
             System.out.println(e);
