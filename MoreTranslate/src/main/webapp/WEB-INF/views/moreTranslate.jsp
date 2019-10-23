@@ -18,11 +18,12 @@
         <h1>모아번역</h1>
         <p>파파고, 카카오, 구글 3대 번역 기술을 한곳에서 <br> 모아 번역하자</p>
       </header>
-      <textarea id = "translateArea" class="translateArea shadow" maxlength="1000"></textarea>
+      <textarea id = "translateArea" class="translateArea shadow" maxlength="1500"></textarea>
 		<script>
 			var placeholder="\r\n번역할 내용을 입력하세요.(언어감지) \r\n\r\n"+
 							"* 문장/문단 단위로 입력하셔야 구분이 편하십니다.\r\n"+
-							"* 한번에 최대 1000자 까지만 번역이가능합니다.";
+							"* 한번에 최대 1500자 까지만 번역이가능합니다.\r\n"+
+							"* 글자수는 공백을 포함한 단위입니다.";
 			$("#translateArea").attr('placeholder', placeholder);
 		</script>
 	
