@@ -19,7 +19,9 @@ $(document).ready(function(){
 		$(".textArea_kakao").css("font-size","30px").height("400px").width("572px");
 		$(".textArea_google").css("font-size","30px").height("400px").width("572px");
 		$("h1").css("font-size","3rem");
-		$("p").css("font-size","25px")
+		$("p").css("font-size","25px");
+		$(".bmc-button").width("576px");
+		
 	}
 	eventBind();
 });
@@ -27,10 +29,6 @@ $(document).ready(function(){
 //skills들 이벤트
 function isMobile() {
 	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-
-function mobileEvent(){
-	
 }
 
 function eventBind(){

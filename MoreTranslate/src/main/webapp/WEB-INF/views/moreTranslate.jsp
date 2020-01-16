@@ -6,13 +6,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모아번역, 한번에 비교하여 번역하자</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-    <link rel="stylesheet" href="resources/css/translateStyle.css">
-    <link rel="shortcut icon" href="resources/image/language_VCk_icon.ico" type="image/x-icon">
-    <link rel="icon" href="resources/image/language_VCk_icon.ico" type="image/x-icon">
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  	<script src="resources/js/jquery.selectlist.js"></script>
   </head>
+  <link rel="shortcut icon" href="resources/image/language_VCk_icon.ico" type="image/x-icon">
+  <link rel="icon" href="resources/image/language_VCk_icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+  <link rel="stylesheet" href="resources/css/translateStyle.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="resources/js/jquery.selectlist.js"></script>
   <body>
       <header>
         <h1>모아번역</h1>
@@ -78,7 +79,6 @@
   		</script>
 
     </div><!-- 띄우기용 -->
-	
 	<div class="inputBox shadow">
       <textarea id="textArea_google" class="textArea_google positionadjust" readonly="readonly">
       </textarea>
@@ -93,7 +93,12 @@
 			
       </textarea>
     </div>
-    
+    <div style="background:#F3F3F3; width:1000px; margin:15px auto;">
+    	<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+    	<a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/BWVU2uF" style="text-align:center;">
+    		<img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;">응원의 글과 커피한잔의 후원 부탁드립니다.</span>
+    	</a>
+    </div>
     <jsp:include page="footer.jsp" flush="false"></jsp:include>
   </body>
 </html>
