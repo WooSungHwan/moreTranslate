@@ -7,32 +7,24 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.more.translate.CommonConstants;
 import com.more.translate.model.ResultVO;
 import com.more.translate.model.TransVO;
 
-@Controller
+@RestController
+@RequestMapping("/api")
 public class TranslateController {
 	
-	@GetMapping("/moreTranslate")
-	public String moreTranslateMain(HttpServletRequest req, HttpServletResponse resp) {
-		return "moreTranslate";
-	}
-	
-	
-	@RequestMapping(value = "/papago", method = { RequestMethod.POST }, produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<ResultVO> papagoTranslate(HttpServletRequest req, HttpServletResponse resp, TransVO vo) {
+	@PostMapping(value = "/papago", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<ResultVO> papagoTranslate(@RequestBody TransVO vo) {
 		String sensor = languageSensor(vo.getValue()); //여기서 언어감지함.
 		ResultVO result = new ResultVO();
 		
@@ -43,12 +35,11 @@ public class TranslateController {
 			result.setResult(1);
 			result.setResp(response.toString());
 		}
-		
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/kakao", method = { RequestMethod.POST }, produces= {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<ResultVO> kakaoTranslate(HttpServletRequest req, HttpServletResponse resp, TransVO vo) {
+	@PostMapping(value = "/kakao", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<ResultVO> kakaoTranslate(@RequestBody TransVO vo) {
 		String sensor = languageSensor(vo.getValue()); //여기서 언어감지함.
 		ResultVO result = new ResultVO();
 		if(sensor.equals(vo.getLang())) {

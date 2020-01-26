@@ -60,14 +60,15 @@ function eventBind(){
 		var params = {};
 		params.lang = lang;
 		params.value = value;
-		//로딩표시기
 		
 		if(isPapago){
 			$.ajax({
-				type:'post',
-				url:'/papago',
-				dataType:'json',
-				data:params,
+				type:'POST',
+				url:'/api/papago',
+				accept:"application/json",
+				contentType:"application/json",
+				dataType:'JSON',
+				data:JSON.stringify(params),
 				success:function(result){
 					var finalResult = JSON.parse(result.resp);
 					
@@ -116,12 +117,14 @@ function eventBind(){
 		
 		if(isKakao){ //웬만하면 모든 채널 되는 듯.
 			$.ajax({
-				type:'post',
-				url:'/kakao',
-				dataType:'json',
-				data:params,
+				type:'POST',
+				url:'/api/kakao',
+				dataType:'JSON',
+				accept: "application/json",
+				contentType:"application/json",
+				data:JSON.stringify(params),
 				success:function(result){
-					console.log(result);
+					
 					var finalResult = JSON.parse(result.resp);
 
 					let resultValue = "";
